@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+  --BrightBlue: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+  /* Light Theme */
+  --LT-VeryLightGray: hsl(0, 0%, 98%);
+  --LT-VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LT-LightGrayishBlue: hsl(233, 11%, 84%);
+  --LT-DarkGrayishBlue: hsl(236, 9%, 61%);
+  --LT-VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /* Dark Theme */
+  --DT-VeryDarkBlue: hsl(235, 21%, 11%);
+  --DT-VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --DT-LightGrayishBlue: hsl(234, 39%, 85%);
+  --DT-LightGrayishBlueHover: hsl(236, 33%, 92%);
+  --DT-DarkGrayishBlue: hsl(234, 11%, 52%);
+  --DT-VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --DT-VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+}
+
+html, body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.dark {
+  background: var(--DT-VeryDarkBlue);
+  color: var(--DT-LightGrayishBlue);
+}
+
+.light {
+  background: var(--LT-VeryLightGrayishBlue);
+  color: var(--LT-VeryDarkGrayishBlue);
+}
+
+img {
+  width: 100%;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  margin: 2rem 1rem 1rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.dark h1 {
+  color: var(--DT-LightGrayishBlueHover);
+}
+
+.light h1 {
+  color: var(--LT-VeryLightGrayishBlue);
+}
+
+input, button {
+  all: unset;
+}
+
+button {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.border-radius {
+  border-radius: .3rem;
+}
+
+.header-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.todo-check {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.todo-check::before,
+.todo-check::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+.todo-check::before {
+  z-index: 1;
+}
+.dark .todo-check::before {
+  background: var(--DT-DarkGrayishBlue);
+}
+
+.light .todo-check::before {
+  background: var(--LT-LightGrayishBlue);
+}
+
+.todo-check::after {
+  z-index: 2;
+  margin: 1px;
+}
+
+.dark .todo-check::after,
+.todo-check:hover::after {
+  background: var(--DT-VeryDarkDesaturatedBlue);
+}
+
+.light .todo-check::after {
+  background: var(--LT-VeryLightGray);
+}
+
+.todo-check:hover::before,
+.todo-completed .todo-check {
+  background-image: var(--CheckBackground);
+}
+
+.todo-completed .todo-check::before,
+.todo-completed .todo-check::after {
+  background: transparent;
+  background-image: none;
+}
+
+.todo-completed .todo-check::after {
+  margin: .3rem;
+  background: url(./assets/img/icon-check.svg) center no-repeat;
+  background-size: contain;
+}
+
+.todo-completed .todo-text {
+  text-decoration: line-through;
+}
+
+.theme-button {
+  width: 1.5rem;
+}
+
+.icon-check {
+  width: 50px;
+  height: 50px;
+}
+
+.add-todo {
+  padding: .75rem;
+  margin-bottom: 1rem;
+}
+
+.dark .add-todo,
+.dark .todo-list-container {
+  background-color: var(--DT-VeryDarkDesaturatedBlue)
+}
+
+.light .add-todo,
+.light .todo-list-container {
+  background-color: var(--LT-VeryLightGray)
+}
+
+.todo-item {
+  padding: .75rem;
+}
+
+.dark .todo-item {
+  border-bottom: 1px solid var(--DT-VeryDarkGrayishBlue)
+}
+
+.light .todo-item {
+  border-bottom: 1px solid var(--LT-LightGrayishBlue)
+}
+
+.delete-todo {
+  display: none;
+}
+
+.todo-item:hover .delete-todo {
+  display: block;
+}
+
+.todo-footer {
+  padding: .75rem;
+  font-size: 14px;
+}
+
+.dark .todo-footer {
+  color: var(--DT-DarkGrayishBlue);
+}
+
+.light .todo-footer {
+  color: var(--LT-DarkGrayishBlue);
+}
+
+.add-todo.gap,
+.todo-item.gap,
+.todo-footer.gap,
+.todo-filter.gap {
+  gap: .5rem;
+}
+
+.filter-all {
+  color: var(--BrightBlue);
+}
+
+.dark .footer-button:hover {
+  color: var(--DT-LightGrayishBlueHover);
+}
+
+.light .footer-button:hover {
+  color: var(--LT-VeryDarkGrayishBlue);
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    width: 80%;
+    margin: 2rem auto 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    width: 50%;
+  }
+}
