@@ -19,31 +19,10 @@
     </div>
     <div class="add-todo flex gap border-radius">
       <input type="checkbox" class="todo-check" name="add-todo-check" id="add-todo-check" />
-      <input type="text" class="add-todo-field align-self-center" name="add-todo-field" id="add-todo-field" placeholder="Create a new todo..." />
+      <input type="text" class="add-todo-field align-self-center flex-grow" name="add-todo-field" id="add-todo-field" placeholder="Create a new todo..." />
     </div>
     <div class="todo-list-container border-radius">
-      <ul class="todo-list">
-        <li class="todo-item todo-completed flex gap">
-          <input type="checkbox" class="todo-check" name="complete-todo-check" id="complete-todo-check" />
-          <span class="todo-text align-self-center flex-grow">Completed todo item</span>
-          <button class="delete-todo"><img src="./assets/img/icon-cross.svg" alt="delete todo" /></button>
-        </li>
-        <li class="todo-item flex gap">
-          <input type="checkbox" class="todo-check" name="complete-todo-check" id="complete-todo-check" />
-          <span class="todo-text align-self-center flex-grow">Uncomplete todo item</span>
-          <button class="delete-todo"><img src="./assets/img/icon-cross.svg" alt="delete todo" /></button>
-        </li>
-        <li class="todo-item flex gap">
-          <input type="checkbox" class="todo-check" name="complete-todo-check" id="complete-todo-check" />
-          <span class="todo-text align-self-center flex-grow">Uncomplete todo item</span>
-          <button class="delete-todo"><img src="./assets/img/icon-cross.svg" alt="delete todo" /></button>
-        </li>
-        <li class="todo-item flex gap">
-          <input type="checkbox" class="todo-check" name="complete-todo-check" id="complete-todo-check" />
-          <span class="todo-text align-self-center flex-grow">Uncomplete todo item</span>
-          <button class="delete-todo"><img src="./assets/img/icon-cross.svg" alt="delete todo" /></button>
-        </li>
-      </ul>
+      <ul class="todo-list"></ul>
       <ul class="todo-footer flex justify-content-between gap">
         <li id="todo-count" class="todo-count">5 items left</li>
         <li>
