@@ -1,15 +1,16 @@
 export class TodoList {
   constructor() {
-    this.todos = []
+    this.getLocalStorage()
   }
 
   addTodo(todo) {
     this.todos.push(todo)
+    this.updateLocalStorage()
   }
 
   deleteTodo(id) {
     this.todos = this.todos.filter(todo => todo.id.toString() !== id.toString())
-    console.log(this.todos)
+    this.updateLocalStorage()
   }
 
   toggleComplete(id) {
@@ -23,7 +24,17 @@ export class TodoList {
 
   deleteCompleted() {
     this.todos = this.todos.filter(todo => !todo.complete)
+    this.updateLocalStorage()
+  }
 
+  updateLocalStorage() {
+    localStorage.setItem('todos', JSON.stringify(this.todos))
     console.log(this.todos)
+  }
+
+  getLocalStorage() {
+    this.todos = localStorage.getItem('todos')
+                  ? JSON.parse(localStorage.getItem('todos'))
+                  : []
   }
 }

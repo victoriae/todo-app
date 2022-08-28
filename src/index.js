@@ -1,12 +1,8 @@
 import './styles.css'
-import { Todo, TodoList } from './js/classes'
+import { TodoList } from './js/classes'
 import { createTodo } from './js/components/todo'
 
 export const todoList = new TodoList()
-const todo = new Todo('New Todo')
 
-todoList.addTodo(todo)
-
-createTodo(todo)
-
-console.log(todoList)
+// todoList.todos.forEach((todo) => { createTodo(todo)})
+todoList.todos.forEach( createTodo )
