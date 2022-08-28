@@ -17,14 +17,15 @@ export class TodoList {
   toggleComplete(id) {
     for (const todo of this.todos) {
       if (todo.id.toString() === id.toString()) {
-        todo.complete = !todo.complete
+        todo.completed = !todo.completed
+        this.updateLocalStorage()
         break
       }
     }
   }
 
   deleteCompleted() {
-    this.todos = this.todos.filter(todo => !todo.complete)
+    this.todos = this.todos.filter(todo => !todo.completed)
     this.updateLocalStorage()
   }
 

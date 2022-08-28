@@ -76,6 +76,10 @@ button {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 .flex {
   display: flex;
 }
@@ -242,7 +246,7 @@ button {
   gap: .5rem;
 }
 
-.filter-all {
+.filter-selected {
   color: var(--BrightBlue);
 }
 

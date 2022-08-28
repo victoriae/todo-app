@@ -6,6 +6,7 @@ const todoListElement = document.querySelector('.todo-list')
 const todoInput = document.getElementById('add-todo-field')
 const addTodoButton = document.getElementById('add-todo-check')
 const deleteCompletedButton = document.getElementById('clear-completed')
+const todoFilter = document.querySelector('.todo-filter')
 
 export const createTodo = (todo) => {
   const liContent = `<input
@@ -57,7 +58,7 @@ todoListElement.addEventListener('click', (e) => {
   if (elementName === 'input') {
     todoList.toggleComplete(todoId)
     todoElement.classList.toggle('todo-completed')
-  }else if (elementName === 'button') {
+  } else if (elementName === 'button') {
     todoList.deleteTodo(todoId)
     todoElement.remove()
   }
@@ -66,7 +67,38 @@ todoListElement.addEventListener('click', (e) => {
 deleteCompletedButton.addEventListener('click', (e) => {
   todoList.deleteCompleted()
   const completedElements = document.querySelectorAll('.todo-completed')
-  completedElements.forEach( element => element.remove())
+  completedElements.forEach(element => element.remove())
+})
+
+todoFilter.addEventListener('click', (e) => {
+  const filter = e.target.id
+  if (!filter.length > 0) return
+
+  const filterButtons = document.querySelectorAll('.filter-button')
+  filterButtons.forEach(button => button.classList.remove('filter-selected'))
+  e.target.classList.toggle('filter-selected')
+
+  for (const element of todoListElement.children) {
+    element.classList.remove('hidden')
+    element.classList.add('flex')
+    const completed = element.classList.contains('todo-completed')
+
+    switch (filter) {
+      case 'filter-active':
+        if (completed) {
+          element.classList.add('hidden')
+          element.classList.remove('flex')
+        }
+        break
+      case 'filter-completed':
+        if (!completed) {
+          element.classList.add('hidden')
+          element.classList.remove('flex')
+        }
+        break
+    }
+  }
+
 })
 
 // functions
