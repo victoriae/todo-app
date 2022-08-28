@@ -1,6 +1,6 @@
-# Webpack Initial
+# TODO App
 
-Webpack initial configuration
+TODO App with FrontendMentor design and LocalStorage
 
 ### Instructions
 
