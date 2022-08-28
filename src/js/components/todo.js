@@ -102,9 +102,15 @@ todoFilter.addEventListener('click', (e) => {
 })
 
 // functions
-const addTodo = (todo) => {
+const addTodo = todo => {
   const newTodo = new Todo(todo)
   todoList.addTodo(newTodo)
   createTodo(newTodo)
   todoInput.value = ''
+}
+
+export const showCounter = () => {
+  const counter = todoList.countTodos()
+  const counterElement = document.getElementById('todo-count')
+  counterElement.innerHTML = `${counter} items left`
 }

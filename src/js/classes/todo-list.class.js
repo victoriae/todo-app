@@ -1,4 +1,5 @@
 import { Todo } from './index'
+import { showCounter } from '../components/todo'
 export class TodoList {
   constructor() {
     this.getLocalStorage()
@@ -29,8 +30,13 @@ export class TodoList {
     this.updateLocalStorage()
   }
 
+  countTodos() {
+    return this.todos.filter(todo => !todo.completed).length
+  }
+
   updateLocalStorage() {
     localStorage.setItem('todos', JSON.stringify(this.todos))
+    showCounter()
     console.log(this.todos)
   }
 
