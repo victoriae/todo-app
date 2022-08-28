@@ -1,4 +1,5 @@
 import './styles.css'
+import './js/components/theme'
 import { TodoList } from './js/classes'
 import { createTodo, showCounter } from './js/components/todo'
 

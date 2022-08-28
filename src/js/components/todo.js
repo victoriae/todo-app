@@ -112,5 +112,5 @@ const addTodo = todo => {
 export const showCounter = () => {
   const counter = todoList.countTodos()
   const counterElement = document.getElementById('todo-count')
-  counterElement.innerHTML = `${counter} items left`
+  counterElement.innerHTML = `${counter} ${counter === 1 ? 'item' : 'items'} left`
 }
