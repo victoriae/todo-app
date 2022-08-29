@@ -37,7 +37,7 @@ export class TodoList {
   updateLocalStorage() {
     localStorage.setItem('todos', JSON.stringify(this.todos))
     showCounter()
-    console.log(this.todos)
+    // console.log(this.todos)
   }
 
   getLocalStorage() {

@@ -3,6 +3,8 @@
 :root {
   --BrightBlue: hsl(220, 98%, 61%);
   --CheckBackground: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --LT-box-shadow: 0px 10px 12px 7px hsl(236, 9%, 61%, 12%);
+  --DT-box-shadow: 0px 10px 12px 7px hsl(235, 21%, 11%, 12%);
 
   /* Light Theme */
   --LT-VeryLightGray: hsl(0, 0%, 98%);
@@ -197,17 +199,37 @@ button {
 }
 
 .dark .add-todo,
-.dark .todo-list-container {
+.dark .todo-list-container,
+.dark .todo-item {
   background-color: var(--DT-VeryDarkDesaturatedBlue)
 }
 
 .light .add-todo,
-.light .todo-list-container {
+.light .todo-list-container,
+.light .todo-item {
   background-color: var(--LT-VeryLightGray)
+}
+
+.dark .add-todo,
+.dark .todo-list-container {
+  -webkit-box-shadow: var(--DT-box-shadow);
+  -moz-box-shadow: var(--DT-box-shadow);
+  box-shadow: var(--DT-box-shadow);
+}
+
+.light .add-todo,
+.light .todo-list-container {
+  -webkit-box-shadow: var(--LT-box-shadow);
+  -moz-box-shadow: var(--LT-box-shadow);
+  box-shadow: var(--LT-box-shadow);
 }
 
 .todo-item {
   padding: .75rem;
+}
+
+.todo-item.draggable-class {
+  background-color: var(--BrightBlue);
 }
 
 .dark .todo-item {
@@ -226,17 +248,25 @@ button {
   visibility: visible;
 }
 
+.instructions,
 .todo-footer {
   padding: .75rem;
   font-size: 14px;
 }
 
+.dark .instructions,
 .dark .todo-footer {
   color: var(--DT-DarkGrayishBlue);
 }
 
+.light .instructions,
 .light .todo-footer {
   color: var(--LT-DarkGrayishBlue);
+}
+
+.instructions {
+  text-align: center;
+  margin: 2rem 0 0;
 }
 
 .add-todo.gap,

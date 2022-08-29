@@ -1,5 +1,6 @@
 import { Todo } from "../classes"
 import { todoList } from "../../index"
+import { handleDragAndDrop } from "../components/d&d"
 
 // HTML references
 const todoListElement = document.querySelector('.todo-list')
@@ -13,7 +14,6 @@ export const createTodo = (todo) => {
                       type="checkbox"
                       class="todo-check flex-shrink-0"
                       name="complete-todo-check"
-                      id="complete-todo-check"
                     />
                     <label
                       class="todo-text
@@ -28,11 +28,13 @@ export const createTodo = (todo) => {
 
   const li = document.createElement('li')
   li.setAttribute('data-id', todo.id)
-  li.classList.add('todo-item', 'flex', 'align-items-center', 'gap')
+  li.classList.add('list-group-item', 'todo-item', 'flex', 'align-items-center', 'gap')
   if (todo.completed) li.classList.add('todo-completed')
   li.innerHTML = liContent
 
   todoListElement.append(li)
+
+  handleDragAndDrop()
 
   return li
 }
